@@ -1,0 +1,114 @@
+version: '3.7'
+
+networks:
+  BigData:
+    name: BigData-network
+    driver: bridge
+
+services:
+  spark:
+    build:
+      context: ./spark
+      dockerfile: dockerfile
+    container_name: spark
+    volumes:
+      - ./includes:/includes
+      - ./jinja_templates:/jinja_templates
+      - ./environment.env:/environment.env
+      - ./tests:/tests
+    ports:
+      - 8888:8888
+      - 8080:8080
+      - 10000:10000
+      - 10001:10001
+      - 2222:22
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+      - AWS_DEFAULT_REGION=us-east-1
+    networks:
+      - BigData
+    
+  nessie:
+    image: projectnessie/nessie:0.67.0
+    container_name: nessie
+    ports:
+      - 19120:19120
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+    networks:
+      - BigData
+
+  minio:
+    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
+    container_name: minio
+    hostname: minio
+    ports:
+      - 9001:9001
+      - 9000:9000
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+    command: ["server", "/data", "--console-address", ":9001"]
+    networks:
+      - BigData
+
+  mc:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add minio http://minio:9000 admin password) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc rm -r --force minio/warehouse;
+      /usr/bin/mc mb minio/warehouse;
+      /usr/bin/mc policy set public minio/warehouse;
+      tail -f /dev/null
+      "      
+    networks:
+      - BigData
+
+  dremio:
+    platform: linux/x86_64
+    container_name: dremio
+    image: dremio/dremio-oss:latest
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 32010:32010
+    networks:
+      - BigData
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2181:2181
+    networks:
+      - BigData
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - BigData

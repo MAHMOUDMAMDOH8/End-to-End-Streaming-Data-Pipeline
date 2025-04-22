@@ -1,0 +1,9 @@
+FROM apache/airflow:2.9.2
+
+
+RUN python3 -m pip install --upgrade pip \
+&& pip install apache-airflow-providers-ssh==3.12.0 dbt-snowflake dbt-core
+
+COPY ./environment.env .
+
+USER airflow
