@@ -1,0 +1,37 @@
+[2025-04-22T14:01:33.307+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-22T14:01:33.331+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:59:38.170204+00:00 [queued]>
+[2025-04-22T14:01:33.336+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:59:38.170204+00:00 [queued]>
+[2025-04-22T14:01:33.336+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-22T14:01:33.350+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): Kafka_Consumer> on 2025-04-22 13:59:38.170204+00:00
+[2025-04-22T14:01:33.356+0000] {standard_task_runner.py:63} INFO - Started process 235 to run task
+[2025-04-22T14:01:33.358+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'Kafka_Consumer', 'manual__2025-04-22T13:59:38.170204+00:00', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/stock_kafka_pipeline.py', '--cfg-path', '/tmp/tmp2v6g8he9']
+[2025-04-22T14:01:33.360+0000] {standard_task_runner.py:91} INFO - Job 61: Subtask Kafka_Consumer
+[2025-04-22T14:01:33.388+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:59:38.170204+00:00 [running]> on host a7c0e6ace072
+[2025-04-22T14:01:33.457+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='Kafka_Consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-04-22T13:59:38.170204+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-22T13:59:38.170204+00:00'
+[2025-04-22T14:01:33.457+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-22T14:01:33.472+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-22T14:01:33.472+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/load_to_bronze.py']
+[2025-04-22T14:01:33.483+0000] {subprocess.py:86} INFO - Output:
+[2025-04-22T14:01:34.172+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.27.0.6', 9092)]>: connecting to kafka:9092 [('172.27.0.6', 9092) IPv4]
+[2025-04-22T14:01:34.175+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=kafka:9092 <checking_api_versions_recv> [IPv4 ('172.27.0.6', 9092)]>: Broker version identified as 2.6
+[2025-04-22T14:01:34.175+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.27.0.6', 9092)]>: Connection complete.
+[2025-04-22T14:01:34.175+0000] {subprocess.py:93} INFO - INFO:kafka.consumer.subscription_state:Updating subscribed topics to: ('stock-prices',)
+[2025-04-22T14:01:34.176+0000] {subprocess.py:93} INFO - INFO:__main__:Starting bronze loader for topic 'stock-prices', writing to /opt/airflow/includes/local warehose/bronze
+[2025-04-22T14:01:34.178+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.27.0.6', 9092)]>: connecting to kafka:9092 [('172.27.0.6', 9092) IPv4]
+[2025-04-22T14:01:34.178+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=1 host=kafka:9092 <connected> [IPv4 ('172.27.0.6', 9092)]>: Connection complete.
+[2025-04-22T14:01:34.178+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.27.0.6', 9092)]>: Closing connection.
+[2025-04-22T14:01:34.282+0000] {subprocess.py:93} INFO - INFO:kafka.cluster:Group coordinator for stock-consumer-group is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+[2025-04-22T14:01:34.282+0000] {subprocess.py:93} INFO - INFO:kafka.coordinator:Discovered coordinator coordinator-1 for group stock-consumer-group
+[2025-04-22T14:01:34.283+0000] {subprocess.py:93} INFO - INFO:kafka.coordinator:Starting new heartbeat thread
+[2025-04-22T14:01:34.283+0000] {subprocess.py:93} INFO - INFO:kafka.coordinator.consumer:Revoking previously assigned partitions set() for group stock-consumer-group
+[2025-04-22T14:01:34.283+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=coordinator-1 host=kafka:9092 <connecting> [IPv4 ('172.27.0.6', 9092)]>: connecting to kafka:9092 [('172.27.0.6', 9092) IPv4]
+[2025-04-22T14:01:34.284+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-2.1.5, node_id=coordinator-1 host=kafka:9092 <connected> [IPv4 ('172.27.0.6', 9092)]>: Connection complete.
+[2025-04-22T14:01:34.384+0000] {subprocess.py:93} INFO - INFO:kafka.coordinator:(Re-)joining group stock-consumer-group
+[2025-04-22T14:01:35.177+0000] {subprocess.py:93} INFO - INFO:__main__:Bronze loader completed.
+[2025-04-22T14:01:35.219+0000] {subprocess.py:93} INFO - INFO:kafka.coordinator:Stopping heartbeat thread
+[2025-04-22T14:01:35.270+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-22T14:01:35.271+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-22T14:01:35.287+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_kafka_pipeline, task_id=Kafka_Consumer, run_id=manual__2025-04-22T13:59:38.170204+00:00, execution_date=20250422T135938, start_date=20250422T140133, end_date=20250422T140135
+[2025-04-22T14:01:35.335+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-04-22T14:01:35.352+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-22T14:01:35.353+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

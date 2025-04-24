@@ -1,0 +1,32 @@
+[2025-04-22T19:10:04.244+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-22T19:10:04.265+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-22T19:00:00+00:00 [queued]>
+[2025-04-22T19:10:04.270+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-22T19:00:00+00:00 [queued]>
+[2025-04-22T19:10:04.271+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-22T19:10:04.284+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): Kafka_Producer> on 2025-04-22 19:00:00+00:00
+[2025-04-22T19:10:04.288+0000] {standard_task_runner.py:63} INFO - Started process 447 to run task
+[2025-04-22T19:10:04.291+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'Kafka_Producer', 'scheduled__2025-04-22T19:00:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/stock_kafka_pipeline.py', '--cfg-path', '/tmp/tmprp4havho']
+[2025-04-22T19:10:04.292+0000] {standard_task_runner.py:91} INFO - Job 114: Subtask Kafka_Producer
+[2025-04-22T19:10:04.320+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-22T19:00:00+00:00 [running]> on host 5a23ef60022c
+[2025-04-22T19:10:04.383+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='Kafka_Producer' AIRFLOW_CTX_EXECUTION_DATE='2025-04-22T19:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-22T19:00:00+00:00'
+[2025-04-22T19:10:04.383+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-22T19:10:04.398+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-22T19:10:04.398+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/alpha_vantage_producer.py']
+[2025-04-22T19:10:04.407+0000] {subprocess.py:86} INFO - Output:
+[2025-04-22T19:10:05.118+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.27.0.7', 9092)]>: connecting to kafka:9092 [('172.27.0.7', 9092) IPv4]
+[2025-04-22T19:10:05.120+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <checking_api_versions_recv> [IPv4 ('172.27.0.7', 9092)]>: Broker version identified as 2.6
+[2025-04-22T19:10:05.120+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.27.0.7', 9092)]>: Connection complete.
+[2025-04-22T19:10:05.121+0000] {subprocess.py:93} INFO - INFO:__main__:Alpha Vantage producer started for symbols: ['IBM', 'AAPL', 'MSFT', 'TSLA']
+[2025-04-22T19:10:05.618+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.27.0.7', 9092)]>: connecting to kafka:9092 [('172.27.0.7', 9092) IPv4]
+[2025-04-22T19:10:05.619+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connected> [IPv4 ('172.27.0.7', 9092)]>: Connection complete.
+[2025-04-22T19:10:05.619+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.27.0.7', 9092)]>: Closing connection.
+[2025-04-22T19:10:05.623+0000] {subprocess.py:93} INFO - INFO:__main__:Published data for IBM to topic 'stock-prices'
+[2025-04-22T19:10:18.625+0000] {subprocess.py:93} INFO - INFO:__main__:Published data for AAPL to topic 'stock-prices'
+[2025-04-22T19:10:19.440+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-04-22T19:10:19.441+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-04-22T19:10:19.446+0000] {process_utils.py:132} INFO - Sending 15 to group 447. PIDs of all processes in the group: [448, 447]
+[2025-04-22T19:10:19.446+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 447
+[2025-04-22T19:10:19.447+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-22T19:10:19.448+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-04-22T19:10:19.449+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-22T19:10:19.499+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=447, status='terminated', exitcode=0, started='19:10:03') (447) terminated with exit code 0
+[2025-04-22T19:10:19.500+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=448, status='terminated', started='19:10:03') (448) terminated with exit code None

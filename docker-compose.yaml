@@ -1,11 +1,40 @@
-version: '3.7'
-
 networks:
-  BigData:
+  BigData-network:
     name: BigData-network
+    driver: bridge
+  airflow-network:
     driver: bridge
 
 services:
+  # HDFS NameNode
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=bigdata-cluster
+    volumes:
+      - hdfs-namenode:/hadoop/dfs/name
+    ports:
+      - "9870:9870"
+      - "8020:8020"
+    networks:
+      - BigData-network
+
+  # HDFS DataNode
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    environment:
+      - CLUSTER_NAME=bigdata-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+    volumes:
+      - hdfs-datanode:/hadoop/dfs/data
+    networks:
+      - BigData-network
+    depends_on:
+      - namenode
+
+  # Spark (connects to HDFS)
   spark:
     build:
       context: ./spark
@@ -16,75 +45,23 @@ services:
       - ./jinja_templates:/jinja_templates
       - ./environment.env:/environment.env
       - ./tests:/tests
+      - ./Source:/opt/spark/source
+      - ./spark/core-site.xml:/opt/spark/conf/core-site.xml  # Mount HDFS config
+      - ./hadoop/bin:/opt/spark/hadoop/bin
+      - ./spark-apps:/opt/spark-apps
     ports:
       - 8888:8888
       - 8080:8080
       - 10000:10000
       - 10001:10001
       - 2222:22
-    environment:
-      - AWS_ACCESS_KEY_ID=admin
-      - AWS_SECRET_ACCESS_KEY=password
-      - AWS_REGION=us-east-1
-      - AWS_DEFAULT_REGION=us-east-1
     networks:
-      - BigData
-    
-  nessie:
-    image: projectnessie/nessie:0.67.0
-    container_name: nessie
-    ports:
-      - 19120:19120
-    environment:
-      - AWS_ACCESS_KEY_ID=admin
-      - AWS_SECRET_ACCESS_KEY=password
-      - AWS_REGION=us-east-1
-    networks:
-      - BigData
-
-  minio:
-    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
-    container_name: minio
-    hostname: minio
-    ports:
-      - 9001:9001
-      - 9000:9000
-    environment:
-      - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=password
-      - AWS_ACCESS_KEY_ID=admin
-      - AWS_SECRET_ACCESS_KEY=password
-      - AWS_REGION=us-east-1
-    command: ["server", "/data", "--console-address", ":9001"]
-    networks:
-      - BigData
-
-  mc:
-    image: minio/mc
+      - BigData-network
     depends_on:
-      - minio
-    entrypoint: >
-      /bin/sh -c "
-      until (/usr/bin/mc config host add minio http://minio:9000 admin password) do echo '...waiting...' && sleep 1; done;
-      /usr/bin/mc rm -r --force minio/warehouse;
-      /usr/bin/mc mb minio/warehouse;
-      /usr/bin/mc policy set public minio/warehouse;
-      tail -f /dev/null
-      "      
-    networks:
-      - BigData
+      - namenode
+      - datanode
 
-  dremio:
-    platform: linux/x86_64
-    container_name: dremio
-    image: dremio/dremio-oss:latest
-    ports:
-      - 9047:9047
-      - 31010:31010
-      - 32010:32010
-    networks:
-      - BigData
-
+  # Zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
@@ -93,8 +70,9 @@ services:
     ports:
       - 2181:2181
     networks:
-      - BigData
+      - BigData-network
 
+  # Kafka
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka
@@ -111,4 +89,148 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
-      - BigData
+      - BigData-network
+
+  # Airflow services (unchanged)
+  airflow-webserver:
+    container_name: airflow-webserver
+    build: .
+    env_file:
+      - ./environment.env
+    command: webserver
+    ports:
+      - "8082:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./config:/opt/airflow/config
+      - ./plugins:/opt/airflow/plugins
+      - ./db:/opt/airflow/db
+      - ./Scripts:/opt/airflow/Scripts
+      - ./includes:/opt/airflow/includes
+      - ./environment.env:/opt/airflow/environment.env
+      - ./spark-apps:/opt/spark-apps
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+      AIRFLOW__CORE__TEST_CONNECTION: 'Enabled'
+      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
+    user: "${AIRFLOW_UID:-50000}:0"
+    networks:
+      - airflow-network
+      - BigData-network
+
+  airflow-scheduler:
+    container_name: airflow-scheduler
+    build: .
+    env_file:
+      - ./environment.env
+    command: scheduler
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./config:/opt/airflow/config
+      - ./plugins:/opt/airflow/plugins
+      - ./db:/opt/airflow/db
+      - ./Scripts:/opt/airflow/Scripts
+      - ./includes:/opt/airflow/includes
+      - ./environment.env:/opt/airflow/environment.env
+      - ./spark-apps:/opt/spark-apps
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+      AIRFLOW__CORE__TEST_CONNECTION: 'Enabled'
+      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
+    user: "${AIRFLOW_UID:-50000}:0"
+    networks:
+      - airflow-network
+      - BigData-network
+
+  airflow-init:
+    container_name: airflow-init
+    build: .
+    env_file:
+      - ./environment.env
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /opt/airflow/{logs,dags,plugins,db}
+        chown -R "${AIRFLOW_UID}:0" /opt/airflow/{logs,dags,plugins,db}
+        exec /entrypoint airflow version && airflow config get-value database sql_alchemy_conn
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
+      _AIRFLOW_DB_MIGRATE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    user: "0:0"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./config:/opt/airflow/config
+      - ./plugins:/opt/airflow/plugins
+      - ./db:/opt/airflow/db
+      - ./Scripts:/opt/airflow/Scripts
+      - ./includes:/opt/airflow/includes
+      - ./environment.env:/opt/airflow/environment.env
+      - ./spark-apps:/opt/spark-apps  
+    networks:
+      - airflow-network
+      - BigData-network
+
+  airflow-cli:
+    container_name: airflow-cli
+    build: .
+    env_file:
+      - ./environment.env
+    command:
+      - airflow
+      - version
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./config:/opt/airflow/config
+      - ./plugins:/opt/airflow/plugins
+      - ./db:/opt/airflow/db
+      - ./Scripts:/opt/airflow/Scripts
+      - ./includes:/opt/airflow/includes
+      - ./environment.env:/opt/airflow/environment.env
+    networks:
+      - airflow-network
+      - BigData-network
+
+volumes:
+  hdfs-namenode:
+  hdfs-datanode:
+  airflow_logs:
+  airflow_db:

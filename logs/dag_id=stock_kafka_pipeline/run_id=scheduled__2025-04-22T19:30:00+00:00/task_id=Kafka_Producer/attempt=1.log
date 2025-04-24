@@ -1,0 +1,3 @@
+[2025-04-22T19:44:10.382+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-22T19:44:10.402+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-22T19:30:00+00:00 [skipped]>, dependency 'Task Instance State' FAILED: Task is in the 'skipped' state.
+[2025-04-22T19:44:10.406+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

@@ -1,0 +1,1 @@
+[2025-04-22T19:08:26.059+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: stock_kafka_pipeline.upload_to_hdfs manual__2025-04-22T19:07:23.163300+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?

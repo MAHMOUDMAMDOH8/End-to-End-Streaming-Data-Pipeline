@@ -1,0 +1,42 @@
+[2025-04-22T13:15:43.030+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-22T13:15:43.077+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:13:53.759258+00:00 [queued]>
+[2025-04-22T13:15:43.086+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:13:53.759258+00:00 [queued]>
+[2025-04-22T13:15:43.086+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-22T13:15:43.101+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): Kafka_Consumer> on 2025-04-22 13:13:53.759258+00:00
+[2025-04-22T13:15:43.107+0000] {standard_task_runner.py:63} INFO - Started process 98 to run task
+[2025-04-22T13:15:43.109+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'Kafka_Consumer', 'manual__2025-04-22T13:13:53.759258+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/stock_kafka_pipeline.py', '--cfg-path', '/tmp/tmppb6_mljw']
+[2025-04-22T13:15:43.111+0000] {standard_task_runner.py:91} INFO - Job 26: Subtask Kafka_Consumer
+[2025-04-22T13:15:43.146+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:13:53.759258+00:00 [running]> on host c25f8f7dc196
+[2025-04-22T13:15:43.219+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='Kafka_Consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-04-22T13:13:53.759258+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-22T13:13:53.759258+00:00'
+[2025-04-22T13:15:43.220+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-22T13:15:43.239+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-22T13:15:43.239+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/load_to_bronze.py']
+[2025-04-22T13:15:43.252+0000] {subprocess.py:86} INFO - Output:
+[2025-04-22T13:15:43.984+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-04-22T13:15:43.984+0000] {subprocess.py:93} INFO -   File "/opt/airflow/Scripts/load_to_bronze.py", line 13, in <module>
+[2025-04-22T13:15:43.985+0000] {subprocess.py:93} INFO -     os.makedirs(BRONZE_DIR, exist_ok=True)
+[2025-04-22T13:15:43.985+0000] {subprocess.py:93} INFO -   File "<frozen os>", line 215, in makedirs
+[2025-04-22T13:15:43.985+0000] {subprocess.py:93} INFO -   File "<frozen os>", line 215, in makedirs
+[2025-04-22T13:15:43.985+0000] {subprocess.py:93} INFO -   File "<frozen os>", line 225, in makedirs
+[2025-04-22T13:15:43.985+0000] {subprocess.py:93} INFO - PermissionError: [Errno 13] Permission denied: '/includes'
+[2025-04-22T13:15:44.056+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-04-22T13:15:44.057+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-22T13:15:44.063+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-22T13:15:44.067+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_kafka_pipeline, task_id=Kafka_Consumer, run_id=manual__2025-04-22T13:13:53.759258+00:00, execution_date=20250422T131353, start_date=20250422T131543, end_date=20250422T131544
+[2025-04-22T13:15:44.077+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 26 for task Kafka_Consumer (Bash command failed. The command returned a non-zero exit code 1.; 98)
+[2025-04-22T13:15:44.123+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-22T13:15:44.135+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-22T13:15:44.135+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
