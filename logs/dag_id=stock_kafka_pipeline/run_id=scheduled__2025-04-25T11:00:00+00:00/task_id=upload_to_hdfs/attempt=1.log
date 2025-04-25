@@ -1,0 +1,20 @@
+[2025-04-25T11:18:50.813+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T11:18:50.843+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.upload_to_hdfs scheduled__2025-04-25T11:00:00+00:00 [queued]>
+[2025-04-25T11:18:50.848+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.upload_to_hdfs scheduled__2025-04-25T11:00:00+00:00 [queued]>
+[2025-04-25T11:18:50.849+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-25T11:18:50.863+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): upload_to_hdfs> on 2025-04-25 11:00:00+00:00
+[2025-04-25T11:18:50.873+0000] {standard_task_runner.py:63} INFO - Started process 311 to run task
+[2025-04-25T11:18:50.876+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'upload_to_hdfs', 'scheduled__2025-04-25T11:00:00+00:00', '--job-id', '379', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp6znae5l5']
+[2025-04-25T11:18:50.877+0000] {standard_task_runner.py:91} INFO - Job 379: Subtask upload_to_hdfs
+[2025-04-25T11:18:50.913+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.upload_to_hdfs scheduled__2025-04-25T11:00:00+00:00 [running]> on host 9489df9b8294
+[2025-04-25T11:18:50.993+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='upload_to_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T11:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-25T11:00:00+00:00'
+[2025-04-25T11:18:50.994+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T11:18:51.008+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T11:18:51.009+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/upload_to_hdfs.py']
+[2025-04-25T11:18:51.025+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T11:18:51.704+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-25T11:18:51.704+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T11:18:51.720+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_kafka_pipeline, task_id=upload_to_hdfs, run_id=scheduled__2025-04-25T11:00:00+00:00, execution_date=20250425T110000, start_date=20250425T111850, end_date=20250425T111851
+[2025-04-25T11:18:51.770+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-04-25T11:18:51.790+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T11:18:51.793+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

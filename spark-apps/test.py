@@ -1,11 +1,9 @@
-import findspark
-findspark.init()
 from pyspark.sql import SparkSession
 
 try:
     spark = SparkSession.builder \
         .appName("HelloSpark") \
-        .master("spark://spark:7077") \
+        .master("spark://005ea60de9b2:7077") \
         .getOrCreate()
     # Simple check: print the master URL to confirm connectivity
     print(f"Connected to Spark Master: {spark.sparkContext.master}")

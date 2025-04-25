@@ -1,0 +1,246 @@
+[2025-04-25T05:41:26.171+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T05:41:26.192+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T05:30:00+00:00 [queued]>
+[2025-04-25T05:41:26.198+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T05:30:00+00:00 [queued]>
+[2025-04-25T05:41:26.198+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-25T05:41:26.210+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_test> on 2025-04-25 05:30:00+00:00
+[2025-04-25T05:41:26.218+0000] {standard_task_runner.py:63} INFO - Started process 343 to run task
+[2025-04-25T05:41:26.220+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'run_spark_test', 'scheduled__2025-04-25T05:30:00+00:00', '--job-id', '326', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp5cxli5lm']
+[2025-04-25T05:41:26.221+0000] {standard_task_runner.py:91} INFO - Job 326: Subtask run_spark_test
+[2025-04-25T05:41:26.252+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T05:30:00+00:00 [running]> on host b8ca48d3e41a
+[2025-04-25T05:41:26.305+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_test' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T05:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-25T05:30:00+00:00'
+[2025-04-25T05:41:26.306+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T05:41:26.317+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T05:41:26.318+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://172.21.0.8:7077  /opt/airflow/Scripts/test.py']
+[2025-04-25T05:41:26.330+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T05:41:29.539+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SparkContext: Running Spark version 3.5.5
+[2025-04-25T05:41:29.542+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SparkContext: OS info Linux, 6.11.0-24-generic, amd64
+[2025-04-25T05:41:29.542+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SparkContext: Java version 17.0.14
+[2025-04-25T05:41:29.607+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-25T05:41:29.723+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceUtils: ==============================================================
+[2025-04-25T05:41:29.724+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-04-25T05:41:29.724+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceUtils: ==============================================================
+[2025-04-25T05:41:29.725+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SparkContext: Submitted application: SparkTest
+[2025-04-25T05:41:29.750+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-04-25T05:41:29.757+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceProfile: Limiting resource is cpu
+[2025-04-25T05:41:29.758+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-04-25T05:41:29.813+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SecurityManager: Changing view acls to: airflow
+[2025-04-25T05:41:29.813+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SecurityManager: Changing modify acls to: airflow
+[2025-04-25T05:41:29.814+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SecurityManager: Changing view acls groups to:
+[2025-04-25T05:41:29.815+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SecurityManager: Changing modify acls groups to:
+[2025-04-25T05:41:29.815+0000] {subprocess.py:93} INFO - 25/04/25 05:41:29 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+[2025-04-25T05:41:30.080+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO Utils: Successfully started service 'sparkDriver' on port 40799.
+[2025-04-25T05:41:30.110+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO SparkEnv: Registering MapOutputTracker
+[2025-04-25T05:41:30.148+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO SparkEnv: Registering BlockManagerMaster
+[2025-04-25T05:41:30.174+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-04-25T05:41:30.175+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-04-25T05:41:30.180+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-04-25T05:41:30.210+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-cf69805b-c5b6-4c40-894c-283550ab8fd5
+[2025-04-25T05:41:30.228+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-04-25T05:41:30.247+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-04-25T05:41:30.377+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-04-25T05:41:30.434+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-04-25T05:41:30.548+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.21.0.8:7077...
+[2025-04-25T05:41:30.591+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO TransportClientFactory: Successfully created connection to /172.21.0.8:7077 after 23 ms (0 ms spent in bootstraps)
+[2025-04-25T05:41:30.723+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250425054130-0000
+[2025-04-25T05:41:30.737+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 46837.
+[2025-04-25T05:41:30.737+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO NettyBlockTransferService: Server created on b8ca48d3e41a:46837
+[2025-04-25T05:41:30.740+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-04-25T05:41:30.748+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250425054130-0000/0 on worker-20250425053603-172.21.0.8-35193 (172.21.0.8:35193) with 8 core(s)
+[2025-04-25T05:41:30.751+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO StandaloneSchedulerBackend: Granted executor ID app-20250425054130-0000/0 on hostPort 172.21.0.8:35193 with 8 core(s), 1024.0 MiB RAM
+[2025-04-25T05:41:30.755+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, b8ca48d3e41a, 46837, None)
+[2025-04-25T05:41:30.757+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManagerMasterEndpoint: Registering block manager b8ca48d3e41a:46837 with 434.4 MiB RAM, BlockManagerId(driver, b8ca48d3e41a, 46837, None)
+[2025-04-25T05:41:30.765+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, b8ca48d3e41a, 46837, None)
+[2025-04-25T05:41:30.766+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, b8ca48d3e41a, 46837, None)
+[2025-04-25T05:41:30.954+0000] {subprocess.py:93} INFO - 25/04/25 05:41:30 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250425054130-0000/0 is now RUNNING
+[2025-04-25T05:41:31.135+0000] {subprocess.py:93} INFO - 25/04/25 05:41:31 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-04-25T05:41:31.474+0000] {subprocess.py:93} INFO - INFO:spark_test:Connected to Spark Master: spark://172.21.0.8:7077
+[2025-04-25T05:41:31.474+0000] {subprocess.py:93} INFO - INFO:spark_test:Hello Spark!
+[2025-04-25T05:41:33.138+0000] {subprocess.py:93} INFO - 25/04/25 05:41:33 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-04-25T05:41:33.145+0000] {subprocess.py:93} INFO - 25/04/25 05:41:33 INFO SharedState: Warehouse path is 'file:/tmp/airflowtmpe7_4_e9h/spark-warehouse'.
+[2025-04-25T05:41:33.958+0000] {subprocess.py:93} INFO - 25/04/25 05:41:33 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.21.0.8:46428) with ID 0,  ResourceProfileId 0
+[2025-04-25T05:41:34.044+0000] {subprocess.py:93} INFO - 25/04/25 05:41:34 INFO BlockManagerMasterEndpoint: Registering block manager 172.21.0.8:39467 with 434.4 MiB RAM, BlockManagerId(0, 172.21.0.8, 39467, None)
+[2025-04-25T05:41:35.072+0000] {subprocess.py:93} INFO - INFO:spark_test:DataFrame created successfully!
+[2025-04-25T05:41:35.753+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO CodeGenerator: Code generated in 178.219318 ms
+[2025-04-25T05:41:35.785+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2025-04-25T05:41:35.798+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Got job 0 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2025-04-25T05:41:35.798+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Final stage: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0)
+[2025-04-25T05:41:35.799+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Parents of final stage: List()
+[2025-04-25T05:41:35.800+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Missing parents: List()
+[2025-04-25T05:41:35.802+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-04-25T05:41:35.883+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 12.7 KiB, free 434.4 MiB)
+[2025-04-25T05:41:35.917+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 6.7 KiB, free 434.4 MiB)
+[2025-04-25T05:41:35.919+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on b8ca48d3e41a:46837 (size: 6.7 KiB, free: 434.4 MiB)
+[2025-04-25T05:41:35.922+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-04-25T05:41:35.940+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-04-25T05:41:35.941+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-04-25T05:41:35.969+0000] {subprocess.py:93} INFO - 25/04/25 05:41:35 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.21.0.8, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes)
+[2025-04-25T05:41:36.063+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0) (172.21.0.8 executor 0): java.io.InvalidClassException: org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095
+[2025-04-25T05:41:36.064+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:560)
+[2025-04-25T05:41:36.064+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.065+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.066+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.066+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.066+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2201)
+[2025-04-25T05:41:36.066+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+[2025-04-25T05:41:36.067+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+[2025-04-25T05:41:36.067+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+[2025-04-25T05:41:36.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:87)
+[2025-04-25T05:41:36.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:129)
+[2025-04-25T05:41:36.067+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:579)
+[2025-04-25T05:41:36.068+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-04-25T05:41:36.068+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-04-25T05:41:36.068+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-04-25T05:41:36.068+0000] {subprocess.py:93} INFO - 
+[2025-04-25T05:41:36.068+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Starting task 0.1 in stage 0.0 (TID 1) (172.21.0.8, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes)
+[2025-04-25T05:41:36.085+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Lost task 0.1 in stage 0.0 (TID 1) on 172.21.0.8, executor 0: java.io.InvalidClassException (org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095) [duplicate 1]
+[2025-04-25T05:41:36.086+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Starting task 0.2 in stage 0.0 (TID 2) (172.21.0.8, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes)
+[2025-04-25T05:41:36.101+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Lost task 0.2 in stage 0.0 (TID 2) on 172.21.0.8, executor 0: java.io.InvalidClassException (org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095) [duplicate 2]
+[2025-04-25T05:41:36.103+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Starting task 0.3 in stage 0.0 (TID 3) (172.21.0.8, executor 0, partition 0, PROCESS_LOCAL, 8983 bytes)
+[2025-04-25T05:41:36.116+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSetManager: Lost task 0.3 in stage 0.0 (TID 3) on 172.21.0.8, executor 0: java.io.InvalidClassException (org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095) [duplicate 3]
+[2025-04-25T05:41:36.117+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 ERROR TaskSetManager: Task 0 in stage 0.0 failed 4 times; aborting job
+[2025-04-25T05:41:36.119+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-04-25T05:41:36.121+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSchedulerImpl: Cancelling stage 0
+[2025-04-25T05:41:36.121+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.21.0.8 executor 0): java.io.InvalidClassException: org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095
+[2025-04-25T05:41:36.121+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:560)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2201)
+[2025-04-25T05:41:36.122+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+[2025-04-25T05:41:36.123+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+[2025-04-25T05:41:36.123+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+[2025-04-25T05:41:36.123+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:87)
+[2025-04-25T05:41:36.123+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:129)
+[2025-04-25T05:41:36.123+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:579)
+[2025-04-25T05:41:36.124+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-04-25T05:41:36.124+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-04-25T05:41:36.124+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-04-25T05:41:36.124+0000] {subprocess.py:93} INFO - 
+[2025-04-25T05:41:36.124+0000] {subprocess.py:93} INFO - Driver stacktrace:
+[2025-04-25T05:41:36.125+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO DAGScheduler: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0) failed in 0.312 s due to Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.21.0.8 executor 0): java.io.InvalidClassException: org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095
+[2025-04-25T05:41:36.125+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:560)
+[2025-04-25T05:41:36.125+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.125+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.126+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.126+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.126+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2201)
+[2025-04-25T05:41:36.126+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+[2025-04-25T05:41:36.126+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+[2025-04-25T05:41:36.127+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+[2025-04-25T05:41:36.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:87)
+[2025-04-25T05:41:36.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:129)
+[2025-04-25T05:41:36.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:579)
+[2025-04-25T05:41:36.127+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-04-25T05:41:36.128+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-04-25T05:41:36.128+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-04-25T05:41:36.128+0000] {subprocess.py:93} INFO - 
+[2025-04-25T05:41:36.128+0000] {subprocess.py:93} INFO - Driver stacktrace:
+[2025-04-25T05:41:36.128+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO DAGScheduler: Job 0 failed: showString at NativeMethodAccessorImpl.java:0, took 0.342056 s
+[2025-04-25T05:41:36.292+0000] {subprocess.py:93} INFO - ERROR:spark_test:An error occurred: An error occurred while calling o44.showString.
+[2025-04-25T05:41:36.293+0000] {subprocess.py:93} INFO - : org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.21.0.8 executor 0): java.io.InvalidClassException: org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095
+[2025-04-25T05:41:36.293+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:560)
+[2025-04-25T05:41:36.293+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.293+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2201)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+[2025-04-25T05:41:36.294+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:87)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:129)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:579)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-04-25T05:41:36.295+0000] {subprocess.py:93} INFO - 
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - Driver stacktrace:
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2025-04-25T05:41:36.296+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at scala.Option.foreach(Option.scala:407)
+[2025-04-25T05:41:36.297+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+[2025-04-25T05:41:36.298+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+[2025-04-25T05:41:36.298+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+[2025-04-25T05:41:36.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+[2025-04-25T05:41:36.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+[2025-04-25T05:41:36.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2025-04-25T05:41:36.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+[2025-04-25T05:41:36.299+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
+[2025-04-25T05:41:36.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
+[2025-04-25T05:41:36.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:530)
+[2025-04-25T05:41:36.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2025-04-25T05:41:36.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2025-04-25T05:41:36.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4333)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4323)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4321)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-04-25T05:41:36.301+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-04-25T05:41:36.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-04-25T05:41:36.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-04-25T05:41:36.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-04-25T05:41:36.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+[2025-04-25T05:41:36.302+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.getRows(Dataset.scala:280)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.Dataset.showString(Dataset.scala:315)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-04-25T05:41:36.303+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-04-25T05:41:36.304+0000] {subprocess.py:93} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - Caused by: java.io.InvalidClassException: org.apache.spark.scheduler.Task; local class incompatible: stream classdesc serialVersionUID = -6188971942555435033, local class serialVersionUID = 553100815431272095
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:560)
+[2025-04-25T05:41:36.305+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2020)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1870)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2201)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1687)
+[2025-04-25T05:41:36.306+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:489)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:447)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaDeserializationStream.readObject(JavaSerializer.scala:87)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at org.apache.spark.serializer.JavaSerializerInstance.deserialize(JavaSerializer.scala:129)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:579)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-04-25T05:41:36.307+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-04-25T05:41:36.308+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-04-25T05:41:36.308+0000] {subprocess.py:93} INFO - 
+[2025-04-25T05:41:36.308+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-04-25T05:41:36.308+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO SparkUI: Stopped Spark web UI at http://b8ca48d3e41a:4040
+[2025-04-25T05:41:36.308+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-04-25T05:41:36.309+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-04-25T05:41:36.333+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-04-25T05:41:36.354+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO MemoryStore: MemoryStore cleared
+[2025-04-25T05:41:36.354+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO BlockManager: BlockManager stopped
+[2025-04-25T05:41:36.361+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-04-25T05:41:36.364+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-04-25T05:41:36.375+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO SparkContext: Successfully stopped SparkContext
+[2025-04-25T05:41:36.712+0000] {subprocess.py:93} INFO - INFO:spark_test:Spark session stopped.
+[2025-04-25T05:41:36.713+0000] {subprocess.py:93} INFO - INFO:py4j.clientserver:Closing down clientserver connection
+[2025-04-25T05:41:36.846+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO ShutdownHookManager: Shutdown hook called
+[2025-04-25T05:41:36.847+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-0ff7191c-285f-4e9c-a31b-05851d3a25c5
+[2025-04-25T05:41:36.852+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-4e201cf6-6524-49e5-a982-67592e3bd791
+[2025-04-25T05:41:36.855+0000] {subprocess.py:93} INFO - 25/04/25 05:41:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-0ff7191c-285f-4e9c-a31b-05851d3a25c5/pyspark-e73e2ded-ba06-4b5d-a521-db911b50a11e
+[2025-04-25T05:41:36.893+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-25T05:41:36.894+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T05:41:36.910+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_kafka_pipeline, task_id=run_spark_test, run_id=scheduled__2025-04-25T05:30:00+00:00, execution_date=20250425T053000, start_date=20250425T054126, end_date=20250425T054136
+[2025-04-25T05:41:36.931+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-04-25T05:41:36.939+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T05:41:36.939+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

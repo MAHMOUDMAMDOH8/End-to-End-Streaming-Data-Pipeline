@@ -2,8 +2,9 @@
 FROM python:3.10-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    SPARK_VERSION=3.5.1 \
+    SPARK_VERSION=3.5.5 \
     SPARK_HOME=/opt/spark \
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 \
     PATH="/opt/spark/bin:/opt/spark/sbin:$PATH"
 
 # Install core system dependencies
@@ -13,16 +14,10 @@ RUN apt-get update && \
         curl \
         unzip \
         sudo \
-        netcat && \
+        netcat \
+        procps && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Install procps for ps command
-RUN apt-get update && apt-get install -y procps && apt-get clean
-
-# Set JAVA_HOME environment variable
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Download and extract Spark
 RUN mkdir -p $SPARK_HOME && \
@@ -40,10 +35,11 @@ RUN mkdir -p $SPARK_HOME/jars && \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Spark configuration
 RUN echo "export HADOOP_CONF_DIR=/opt/spark/conf" >> $SPARK_HOME/conf/spark-env.sh
-RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> $SPARK_HOME/conf/spark-env.sh
+# Defer hadoop classpath eval to runtime (optional unless Hadoop is installed)
+RUN echo "export SPARK_DIST_CLASSPATH=\$(hadoop classpath)" >> $SPARK_HOME/conf/spark-env.sh
 RUN echo "spark.hadoop.fs.defaultFS=hdfs://namenode:9000" >> $SPARK_HOME/conf/spark-defaults.conf
-
 
 # Add entrypoint script
 COPY entrypoint.sh $SPARK_HOME/

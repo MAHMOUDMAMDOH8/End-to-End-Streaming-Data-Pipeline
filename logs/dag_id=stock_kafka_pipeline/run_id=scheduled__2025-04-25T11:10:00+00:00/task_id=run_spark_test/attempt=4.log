@@ -1,0 +1,38 @@
+[2025-04-25T11:25:42.590+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T11:25:42.611+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [queued]>
+[2025-04-25T11:25:42.616+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [queued]>
+[2025-04-25T11:25:42.616+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 5
+[2025-04-25T11:25:42.627+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_test> on 2025-04-25 11:10:00+00:00
+[2025-04-25T11:25:42.632+0000] {standard_task_runner.py:63} INFO - Started process 531 to run task
+[2025-04-25T11:25:42.634+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'run_spark_test', 'scheduled__2025-04-25T11:10:00+00:00', '--job-id', '388', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp18cwjxp0']
+[2025-04-25T11:25:42.635+0000] {standard_task_runner.py:91} INFO - Job 388: Subtask run_spark_test
+[2025-04-25T11:25:42.666+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [running]> on host 9489df9b8294
+[2025-04-25T11:25:42.765+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_test' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T11:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-25T11:10:00+00:00'
+[2025-04-25T11:25:42.766+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T11:25:42.777+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T11:25:42.778+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'pyspark --master spark://172.21.0.8:7077 /opt/spark/source/test.py']
+[2025-04-25T11:25:42.789+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T11:25:42.800+0000] {subprocess.py:93} INFO - /home/airflow/.local/bin/find-spark-home: line 40: /usr/local/bin/python3.10: No such file or directory
+[2025-04-25T11:25:42.800+0000] {subprocess.py:93} INFO - /home/airflow/.local/bin/pyspark: line 24: /bin/load-spark-env.sh: No such file or directory
+[2025-04-25T11:25:42.800+0000] {subprocess.py:93} INFO - /home/airflow/.local/bin/pyspark: line 68: /bin/spark-submit: No such file or directory
+[2025-04-25T11:25:42.801+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2025-04-25T11:25:42.801+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T11:25:42.807+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2025-04-25T11:25:42.810+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_kafka_pipeline, task_id=run_spark_test, run_id=scheduled__2025-04-25T11:10:00+00:00, execution_date=20250425T111000, start_date=20250425T112542, end_date=20250425T112542
+[2025-04-25T11:25:42.823+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 388 for task run_spark_test (Bash command failed. The command returned a non-zero exit code 127.; 531)
+[2025-04-25T11:25:42.846+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-25T11:25:42.864+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T11:25:42.865+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

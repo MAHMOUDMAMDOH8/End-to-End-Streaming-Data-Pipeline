@@ -1,0 +1,38 @@
+[2025-04-25T11:35:31.984+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T11:35:32.005+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [queued]>
+[2025-04-25T11:35:32.012+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [queued]>
+[2025-04-25T11:35:32.012+0000] {taskinstance.py:2306} INFO - Starting attempt 13 of 14
+[2025-04-25T11:35:32.024+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_test> on 2025-04-25 11:10:00+00:00
+[2025-04-25T11:35:32.029+0000] {standard_task_runner.py:63} INFO - Started process 404 to run task
+[2025-04-25T11:35:32.031+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'run_spark_test', 'scheduled__2025-04-25T11:10:00+00:00', '--job-id', '402', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpfz6u52t_']
+[2025-04-25T11:35:32.033+0000] {standard_task_runner.py:91} INFO - Job 402: Subtask run_spark_test
+[2025-04-25T11:35:32.063+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-25T11:10:00+00:00 [running]> on host f4170a5e6dc6
+[2025-04-25T11:35:32.126+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_test' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T11:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='13' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-25T11:10:00+00:00'
+[2025-04-25T11:35:32.126+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T11:35:32.136+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T11:35:32.137+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master spark://172.21.0.8:7077 ./Scripts/test.py']
+[2025-04-25T11:35:32.148+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T11:35:34.088+0000] {subprocess.py:93} INFO - python3: can't open file '/tmp/airflowtmp6shnlrm3/Scripts/test.py': [Errno 2] No such file or directory
+[2025-04-25T11:35:34.102+0000] {subprocess.py:93} INFO - 25/04/25 11:35:34 INFO ShutdownHookManager: Shutdown hook called
+[2025-04-25T11:35:34.105+0000] {subprocess.py:93} INFO - 25/04/25 11:35:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-0261e92c-1e7b-4e90-bd53-cbdf9e6f4c6b
+[2025-04-25T11:35:34.140+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-04-25T11:35:34.140+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T11:35:34.146+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-04-25T11:35:34.150+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_kafka_pipeline, task_id=run_spark_test, run_id=scheduled__2025-04-25T11:10:00+00:00, execution_date=20250425T111000, start_date=20250425T113532, end_date=20250425T113534
+[2025-04-25T11:35:34.162+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 402 for task run_spark_test (Bash command failed. The command returned a non-zero exit code 2.; 404)
+[2025-04-25T11:35:34.211+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-25T11:35:34.227+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T11:35:34.229+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

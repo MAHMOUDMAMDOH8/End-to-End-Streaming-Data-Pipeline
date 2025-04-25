@@ -7,7 +7,7 @@ import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('kafka_producer')
 
 # Load configuration from environment
 API_KEY = "02LUMITX3ON1TILA"

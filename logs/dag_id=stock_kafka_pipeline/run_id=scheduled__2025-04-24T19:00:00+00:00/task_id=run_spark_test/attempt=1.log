@@ -1,0 +1,82 @@
+[2025-04-24T19:13:36.828+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-24T19:13:36.863+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-24T19:00:00+00:00 [queued]>
+[2025-04-24T19:13:36.869+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-24T19:00:00+00:00 [queued]>
+[2025-04-24T19:13:36.870+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-24T19:13:36.884+0000] {taskinstance.py:2330} INFO - Executing <Task(SparkSubmitOperator): run_spark_test> on 2025-04-24 19:00:00+00:00
+[2025-04-24T19:13:36.891+0000] {standard_task_runner.py:63} INFO - Started process 1279 to run task
+[2025-04-24T19:13:36.894+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'run_spark_test', 'scheduled__2025-04-24T19:00:00+00:00', '--job-id', '300', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpuwo1tkpa']
+[2025-04-24T19:13:36.896+0000] {standard_task_runner.py:91} INFO - Job 300: Subtask run_spark_test
+[2025-04-24T19:13:36.932+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.run_spark_test scheduled__2025-04-24T19:00:00+00:00 [running]> on host 6555ac884751
+[2025-04-24T19:13:37.007+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_test' AIRFLOW_CTX_EXECUTION_DATE='2025-04-24T19:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-24T19:00:00+00:00'
+[2025-04-24T19:13:37.008+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-24T19:13:37.024+0000] {base.py:84} INFO - Using connection ID 'spark_default' for task execution.
+[2025-04-24T19:13:37.025+0000] {spark_submit.py:328} ERROR - Failed to decode base64 keytab: Incorrect padding
+[2025-04-24T19:13:37.025+0000] {spark_submit.py:305} INFO - Could not load connection string spark_default, defaulting to 005ea60de9b2:7077
+[2025-04-24T19:13:37.026+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master 005ea60de9b2:7077 --principal *** --name arrow-spark --verbose --deploy-mode cluster /opt/***/Scripts/test.py
+[2025-04-24T19:13:38.427+0000] {spark_submit.py:644} INFO - Using properties file: null
+[2025-04-24T19:13:38.563+0000] {spark_submit.py:644} INFO - Parsed arguments:
+[2025-04-24T19:13:38.563+0000] {spark_submit.py:644} INFO - master                  005ea60de9b2:7077
+[2025-04-24T19:13:38.563+0000] {spark_submit.py:644} INFO - remote                  null
+[2025-04-24T19:13:38.564+0000] {spark_submit.py:644} INFO - deployMode              cluster
+[2025-04-24T19:13:38.564+0000] {spark_submit.py:644} INFO - executorMemory          null
+[2025-04-24T19:13:38.564+0000] {spark_submit.py:644} INFO - executorCores           null
+[2025-04-24T19:13:38.564+0000] {spark_submit.py:644} INFO - totalExecutorCores      null
+[2025-04-24T19:13:38.565+0000] {spark_submit.py:644} INFO - propertiesFile          null
+[2025-04-24T19:13:38.565+0000] {spark_submit.py:644} INFO - driverMemory            null
+[2025-04-24T19:13:38.565+0000] {spark_submit.py:644} INFO - driverCores             null
+[2025-04-24T19:13:38.565+0000] {spark_submit.py:644} INFO - driverExtraClassPath    null
+[2025-04-24T19:13:38.566+0000] {spark_submit.py:644} INFO - driverExtraLibraryPath  null
+[2025-04-24T19:13:38.566+0000] {spark_submit.py:644} INFO - driverExtraJavaOptions  null
+[2025-04-24T19:13:38.566+0000] {spark_submit.py:644} INFO - supervise               false
+[2025-04-24T19:13:38.566+0000] {spark_submit.py:644} INFO - queue                   null
+[2025-04-24T19:13:38.567+0000] {spark_submit.py:644} INFO - numExecutors            null
+[2025-04-24T19:13:38.567+0000] {spark_submit.py:644} INFO - files                   null
+[2025-04-24T19:13:38.567+0000] {spark_submit.py:644} INFO - pyFiles                 null
+[2025-04-24T19:13:38.567+0000] {spark_submit.py:644} INFO - archives                null
+[2025-04-24T19:13:38.567+0000] {spark_submit.py:644} INFO - mainClass               null
+[2025-04-24T19:13:38.568+0000] {spark_submit.py:644} INFO - primaryResource         file:/opt/***/Scripts/test.py
+[2025-04-24T19:13:38.568+0000] {spark_submit.py:644} INFO - name                    arrow-spark
+[2025-04-24T19:13:38.568+0000] {spark_submit.py:644} INFO - childArgs               []
+[2025-04-24T19:13:38.569+0000] {spark_submit.py:644} INFO - jars                    null
+[2025-04-24T19:13:38.569+0000] {spark_submit.py:644} INFO - packages                null
+[2025-04-24T19:13:38.569+0000] {spark_submit.py:644} INFO - packagesExclusions      null
+[2025-04-24T19:13:38.569+0000] {spark_submit.py:644} INFO - repositories            null
+[2025-04-24T19:13:38.569+0000] {spark_submit.py:644} INFO - verbose                 true
+[2025-04-24T19:13:38.570+0000] {spark_submit.py:644} INFO - 
+[2025-04-24T19:13:38.570+0000] {spark_submit.py:644} INFO - Spark properties used, including those specified through
+[2025-04-24T19:13:38.570+0000] {spark_submit.py:644} INFO - --conf and those from the properties file null:
+[2025-04-24T19:13:38.570+0000] {spark_submit.py:644} INFO - 
+[2025-04-24T19:13:38.571+0000] {spark_submit.py:644} INFO - 
+[2025-04-24T19:13:38.571+0000] {spark_submit.py:644} INFO - 
+[2025-04-24T19:13:38.628+0000] {spark_submit.py:644} INFO - Exception in thread "main" org.apache.spark.SparkException: Master must either be yarn or start with spark, mesos, k8s, or local
+[2025-04-24T19:13:38.628+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.error(SparkSubmit.scala:1052)
+[2025-04-24T19:13:38.629+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:261)
+[2025-04-24T19:13:38.629+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:969)
+[2025-04-24T19:13:38.629+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:199)
+[2025-04-24T19:13:38.629+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:222)
+[2025-04-24T19:13:38.630+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2025-04-24T19:13:38.630+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1125)
+[2025-04-24T19:13:38.630+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1134)
+[2025-04-24T19:13:38.630+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2025-04-24T19:13:38.650+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-24T19:13:38.658+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master 005ea60de9b2:7077 --principal *** --name arrow-spark --verbose --deploy-mode cluster /opt/***/Scripts/test.py. Error code is: 1.
+[2025-04-24T19:13:38.661+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_kafka_pipeline, task_id=run_spark_test, run_id=scheduled__2025-04-24T19:00:00+00:00, execution_date=20250424T190000, start_date=20250424T191336, end_date=20250424T191338
+[2025-04-24T19:13:38.801+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 300 for task run_spark_test (Cannot execute: spark-submit --master 005ea60de9b2:7077 --principal *** --name arrow-spark --verbose --deploy-mode cluster /opt/***/Scripts/test.py. Error code is: 1.; 1279)
+[2025-04-24T19:13:38.831+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-24T19:13:38.846+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-24T19:13:38.847+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

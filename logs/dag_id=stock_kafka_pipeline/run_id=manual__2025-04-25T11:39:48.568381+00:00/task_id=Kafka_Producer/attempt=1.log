@@ -1,0 +1,72 @@
+[2025-04-25T11:39:52.801+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T11:39:52.825+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer manual__2025-04-25T11:39:48.568381+00:00 [queued]>
+[2025-04-25T11:39:52.829+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer manual__2025-04-25T11:39:48.568381+00:00 [queued]>
+[2025-04-25T11:39:52.829+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-25T11:39:52.840+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): Kafka_Producer> on 2025-04-25 11:39:48.568381+00:00
+[2025-04-25T11:39:52.844+0000] {standard_task_runner.py:63} INFO - Started process 792 to run task
+[2025-04-25T11:39:52.847+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'Kafka_Producer', 'manual__2025-04-25T11:39:48.568381+00:00', '--job-id', '405', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp2hilmz3x']
+[2025-04-25T11:39:52.849+0000] {standard_task_runner.py:91} INFO - Job 405: Subtask Kafka_Producer
+[2025-04-25T11:39:52.883+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.Kafka_Producer manual__2025-04-25T11:39:48.568381+00:00 [running]> on host f4170a5e6dc6
+[2025-04-25T11:39:52.949+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='Kafka_Producer' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T11:39:48.568381+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-25T11:39:48.568381+00:00'
+[2025-04-25T11:39:52.950+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T11:39:52.962+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T11:39:52.963+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/alpha_vantage_producer.py']
+[2025-04-25T11:39:52.974+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T11:39:54.085+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:54.086+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:54.086+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:54.086+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.04 secs
+[2025-04-25T11:39:54.126+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:54.126+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:54.127+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:54.127+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.10 secs
+[2025-04-25T11:39:54.226+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:54.226+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:54.226+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:54.226+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.22 secs
+[2025-04-25T11:39:54.451+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:54.452+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:54.452+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:54.453+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.38 secs
+[2025-04-25T11:39:54.830+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:54.831+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:54.831+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:54.831+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.87 secs
+[2025-04-25T11:39:55.699+0000] {subprocess.py:93} INFO - WARNING:kafka.conn:DNS lookup failed for kafka:9092, exception was [Errno -3] Temporary failure in name resolution. Is your advertised.listeners (called advertised.host.name before Kafka 9) correct and resolvable?
+[2025-04-25T11:39:55.699+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: DNS lookup failed for kafka:9092 (0)
+[2025-04-25T11:39:55.700+0000] {subprocess.py:93} INFO - ERROR:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [unspecified None]>: Closing connection. KafkaConnectionError: DNS failure
+[2025-04-25T11:39:55.700+0000] {subprocess.py:93} INFO - WARNING:kafka.client:No node available during check_version; sleeping 0.38 secs
+[2025-04-25T11:39:56.084+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-04-25T11:39:56.085+0000] {subprocess.py:93} INFO -   File "/opt/airflow/Scripts/alpha_vantage_producer.py", line 19, in <module>
+[2025-04-25T11:39:56.085+0000] {subprocess.py:93} INFO -     producer = KafkaProducer(
+[2025-04-25T11:39:56.085+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^
+[2025-04-25T11:39:56.085+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/kafka/producer/kafka.py", line 408, in __init__
+[2025-04-25T11:39:56.085+0000] {subprocess.py:93} INFO -     client = self.config['kafka_client'](
+[2025-04-25T11:39:56.086+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-25T11:39:56.086+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 262, in __init__
+[2025-04-25T11:39:56.086+0000] {subprocess.py:93} INFO -     self.config['api_version'] = self.check_version()
+[2025-04-25T11:39:56.086+0000] {subprocess.py:93} INFO -                                  ^^^^^^^^^^^^^^^^^^^^
+[2025-04-25T11:39:56.087+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 1073, in check_version
+[2025-04-25T11:39:56.087+0000] {subprocess.py:93} INFO -     raise Errors.NoBrokersAvailable()
+[2025-04-25T11:39:56.087+0000] {subprocess.py:93} INFO - kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2025-04-25T11:39:56.169+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-04-25T11:39:56.169+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T11:39:56.175+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-04-25T11:39:56.179+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_kafka_pipeline, task_id=Kafka_Producer, run_id=manual__2025-04-25T11:39:48.568381+00:00, execution_date=20250425T113948, start_date=20250425T113952, end_date=20250425T113956
+[2025-04-25T11:39:56.194+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 405 for task Kafka_Producer (Bash command failed. The command returned a non-zero exit code 1.; 792)
+[2025-04-25T11:39:56.228+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-25T11:39:56.248+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T11:39:56.249+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

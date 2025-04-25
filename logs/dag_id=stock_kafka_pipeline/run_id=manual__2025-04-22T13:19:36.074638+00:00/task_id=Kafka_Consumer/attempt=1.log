@@ -1,4 +1,0 @@
-[2025-04-22T13:21:32.486+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
-[2025-04-22T13:21:32.505+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:19:36.074638+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
-[2025-04-22T13:21:32.511+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: stock_kafka_pipeline.Kafka_Consumer manual__2025-04-22T13:19:36.074638+00:00 [failed]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=1, upstream_failed=0, removed=0, done=1, success_setup=0, skipped_setup=0), upstream_task_ids={'Kafka_Producer'}
-[2025-04-22T13:21:32.512+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

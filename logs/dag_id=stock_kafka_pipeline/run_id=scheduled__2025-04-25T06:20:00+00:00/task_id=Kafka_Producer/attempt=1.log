@@ -1,0 +1,32 @@
+[2025-04-25T06:31:52.531+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-25T06:31:52.552+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-25T06:20:00+00:00 [queued]>
+[2025-04-25T06:31:52.560+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-25T06:20:00+00:00 [queued]>
+[2025-04-25T06:31:52.560+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-04-25T06:31:52.572+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): Kafka_Producer> on 2025-04-25 06:20:00+00:00
+[2025-04-25T06:31:52.577+0000] {standard_task_runner.py:63} INFO - Started process 467 to run task
+[2025-04-25T06:31:52.579+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'stock_kafka_pipeline', 'Kafka_Producer', 'scheduled__2025-04-25T06:20:00+00:00', '--job-id', '346', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpi2ijmnkd']
+[2025-04-25T06:31:52.580+0000] {standard_task_runner.py:91} INFO - Job 346: Subtask Kafka_Producer
+[2025-04-25T06:31:52.614+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_kafka_pipeline.Kafka_Producer scheduled__2025-04-25T06:20:00+00:00 [running]> on host 9489df9b8294
+[2025-04-25T06:31:52.677+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='stock_kafka_pipeline' AIRFLOW_CTX_TASK_ID='Kafka_Producer' AIRFLOW_CTX_EXECUTION_DATE='2025-04-25T06:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-25T06:20:00+00:00'
+[2025-04-25T06:31:52.677+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-25T06:31:52.688+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-25T06:31:52.688+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/Scripts/alpha_vantage_producer.py']
+[2025-04-25T06:31:52.699+0000] {subprocess.py:86} INFO - Output:
+[2025-04-25T06:31:53.455+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.21.0.7', 9092)]>: connecting to kafka:9092 [('172.21.0.7', 9092) IPv4]
+[2025-04-25T06:31:53.458+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <checking_api_versions_recv> [IPv4 ('172.21.0.7', 9092)]>: Broker version identified as 2.6
+[2025-04-25T06:31:53.458+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.21.0.7', 9092)]>: Connection complete.
+[2025-04-25T06:31:53.459+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Alpha Vantage producer started for symbols: ['IBM', 'AAPL', 'MSFT', 'TSLA']
+[2025-04-25T06:31:53.908+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.21.0.7', 9092)]>: connecting to kafka:9092 [('172.21.0.7', 9092) IPv4]
+[2025-04-25T06:31:53.908+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connected> [IPv4 ('172.21.0.7', 9092)]>: Connection complete.
+[2025-04-25T06:31:53.909+0000] {subprocess.py:93} INFO - INFO:kafka.conn:<BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.21.0.7', 9092)]>: Closing connection.
+[2025-04-25T06:31:53.919+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Published data for IBM to topic 'stock-prices'
+[2025-04-25T06:32:06.527+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Published data for AAPL to topic 'stock-prices'
+[2025-04-25T06:32:19.010+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Published data for MSFT to topic 'stock-prices'
+[2025-04-25T06:32:31.477+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Published data for TSLA to topic 'stock-prices'
+[2025-04-25T06:32:43.479+0000] {subprocess.py:93} INFO - INFO:kafka_producer:Alpha Vantage producer completed.
+[2025-04-25T06:32:43.560+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-25T06:32:43.561+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-25T06:32:43.582+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_kafka_pipeline, task_id=Kafka_Producer, run_id=scheduled__2025-04-25T06:20:00+00:00, execution_date=20250425T062000, start_date=20250425T063152, end_date=20250425T063243
+[2025-04-25T06:32:43.633+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-04-25T06:32:43.650+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-25T06:32:43.654+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
