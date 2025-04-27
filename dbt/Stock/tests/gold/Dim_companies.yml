@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: Dim_company
+    description: "Company dimension table with a surrogate key"
+    columns:
+      - name: symbol
+        description: "symbol of the company"
+        tests:
+          - unique
+          - not_null
+
+      - name: ASSETTYPE
+        description: "Type of asset"
+        tests:
+          - not_null
+
+      - name: name
+        description: "Name of the company"
+        tests:
+          - not_null
+
+      - name: sector
+        description: "Sector of the company"
+
+      - name: industry
+        description: "Industry of the company"
+        
+      - name: DESCRIPTION
+        description: "Description of the company"

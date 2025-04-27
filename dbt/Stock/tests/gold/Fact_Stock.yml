@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: Fact_Stock
+    description: "Fact table for stock prices"
+    columns:
+      - name: id
+        description: "Primary key for the fact table"
+        tests:
+          - not_null
+
+      - name: date_key
+        description: "Surrogate key for the dim_date"
+        tests:
+          - not_null
+
+      - name: volume
+        description: "Volume of stocks traded"
+        tests:
+          - not_null
+
+      - name: open_price
+        description: "Opening price of the stock"
+        tests:
+          - not_null
+
+      - name: close_price
+        description: "Closing price of the stock"
+        tests:
+          - not_null
+
+      - name: high_price
+        description: "Highest price of the stock during the day"
+        tests:
+          - not_null
+
+      - name: low_price
+        description: "Lowest price of the stock during the day"
+        tests:
+          - not_null
+
+      - name: company_id
+        description: "Foreign key to the companies dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('Dim_company')
+              field: symbol

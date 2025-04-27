@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('spark_cleaning_job')
 
 # — your HDFS RPC endpoint for data I/O —
-hdfs_rpc_prefix = "hdfs://172.27.0.2:8020"
+hdfs_rpc_prefix = "hdfs://172.27.0.4:8020"
 hdfs_bronze_path    = "/bronze"
 hdfs_silver_path    = "/silver"
 

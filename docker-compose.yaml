@@ -123,6 +123,7 @@ services:
       - ./environment.env:/opt/airflow/environment.env
       - ./spark-apps:/opt/spark-apps
       - ./Source:/opt/airflow/Source
+      - ./dbt:/opt/airflow/dbt
     environment:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
@@ -165,6 +166,7 @@ services:
       - ./environment.env:/opt/airflow/environment.env
       - ./spark-apps:/opt/spark-apps
       - ./Source:/opt/airflow/Source
+      - ./dbt:/opt/airflow/dbt
     environment:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
@@ -212,6 +214,7 @@ services:
       - ./environment.env:/opt/airflow/environment.env
       - ./spark-apps:/opt/spark-apps  
       - ./Source:/opt/airflow/Source
+      - ./dbt:/opt/airflow/dbt
     networks:
       - airflow-network
       - BigData-network
@@ -235,6 +238,9 @@ services:
       - ./Scripts:/opt/airflow/Scripts
       - ./includes:/opt/airflow/includes
       - ./environment.env:/opt/airflow/environment.env
+      - ./spark-apps:/opt/spark-apps
+      - ./Source:/opt/airflow/Source
+      - ./dbt:/opt/airflow/dbt
     networks:
       - airflow-network
       - BigData-network

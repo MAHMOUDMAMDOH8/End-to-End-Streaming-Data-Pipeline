@@ -60,6 +60,16 @@ with DAG(
         bash_command='rm -r /opt/airflow/includes/local_warehose/silver/stock-prices && python3 /opt/airflow/Scripts/python/upload_to_snowflake.py',
     )
 
+    dbt_task = BashOperator(
+        task_id='build_Models',
+        bash_command='dbt run --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt/Stock',
+    )
 
-    produce_task >> Consume_task >> upload_to_hdfs_task >> cleaning_job_task >> upload_to_snowflake_task
+    dbt_test_task = BashOperator(
+        task_id='quality_Models_test',
+        bash_command='dbt test --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt/Stock',
+    )
+
+
+    produce_task >> Consume_task >> upload_to_hdfs_task >> cleaning_job_task >> upload_to_snowflake_task >> dbt_task >> dbt_test_task
  
