@@ -1,0 +1,13 @@
+
+airflow-webserver.pid
+airflow.cfg
+webserver_config.py
+
+secrets.env
+dag_processor_manager
+profiles.yml
+
+environment.env
+
+# airflow logs
+logs/
