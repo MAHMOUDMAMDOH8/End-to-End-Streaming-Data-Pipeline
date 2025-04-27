@@ -26,22 +26,40 @@ with DAG(
 
     produce_task = BashOperator(
         task_id='Kafka_Producer',
-        bash_command='python3 /opt/airflow/Scripts/alpha_vantage_producer.py',
+        bash_command='python3 /opt/airflow/Scripts/Kafka/Producer.py',
     )
 
-    load_task = BashOperator(
+    Consume_task = BashOperator(
         task_id='Kafka_Consumer',
-        bash_command='python3 /opt/airflow/Scripts/load_to_bronze.py',
+        bash_command='python3 /opt/airflow/Scripts/Kafka/Consumer.py',
     )
 
-    upload_task = BashOperator(
-        task_id="upload_to_hdfs",
-        bash_command='python3 /opt/airflow/Scripts/upload_to_hdfs.py',
+    upload_to_hdfs_task = BashOperator(
+        task_id='Upload_to_HDFS',
+        bash_command='python3 /opt/airflow/Scripts/hdfs/upload_to_hdfs.py',
     )
-    run_spark_test = BashOperator(
-    task_id='run_spark_test',
-    bash_command='spark-submit --master spark://172.21.0.8:7077 /opt/airflow/Scripts/test.py'
-)
 
-    produce_task >> load_task >> upload_task >> run_spark_test
+    cleaning_job_task = SparkSubmitOperator(
+        task_id='Spark_Cleaning_Job',
+        application='/opt/airflow/Scripts/Spark/bronze_to_silver_cleaning_job.py',
+        conn_id='spark_default',
+        total_executor_cores=1,
+        executor_cores=1,
+        executor_memory='2g',
+        num_executors=1,
+        driver_memory='2g',
+        verbose=False,
+        conf={
+            "spark.pyspark.python": "/usr/local/bin/python",
+            "spark.executorEnv.PYSPARK_PYTHON": "/usr/local/bin/python",
+        },
+    )
+
+    upload_to_snowflake_task = BashOperator(
+        task_id='Upload_to_Snowflake',
+        bash_command='rm -r /opt/airflow/includes/local_warehose/silver/stock-prices && python3 /opt/airflow/Scripts/python/upload_to_snowflake.py',
+    )
+
+
+    produce_task >> Consume_task >> upload_to_hdfs_task >> cleaning_job_task >> upload_to_snowflake_task
  
