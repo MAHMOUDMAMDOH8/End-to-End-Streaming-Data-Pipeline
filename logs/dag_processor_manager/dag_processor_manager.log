@@ -47396,3 +47396,534 @@ File Path                  PID    Runtime      # DAGs    # Errors  Last Runtime 
 /opt/airflow/dags/test.py                           1           0  0.11s           2025-04-27T19:47:54
 ================================================================================
 [2025-04-27T19:48:01.779+0000] {manager.py:1128} WARNING - Skipping processing of missing file: /opt/airflow/dags/test.py
+[2025-04-27T19:52:50.718+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T19:52:50.719+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T19:52:59.787+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.21s           2025-04-27T19:52:50
+================================================================================
+[2025-04-27T19:53:30.067+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.12s           2025-04-27T19:53:21
+================================================================================
+[2025-04-27T19:54:00.398+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:53:51
+================================================================================
+[2025-04-27T19:54:30.645+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:54:21
+================================================================================
+[2025-04-27T19:55:00.910+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:54:51
+================================================================================
+[2025-04-27T19:55:31.219+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:55:22
+================================================================================
+[2025-04-27T19:56:01.508+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:55:52
+================================================================================
+[2025-04-27T19:56:32.172+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.31s           2025-04-27T19:56:23
+================================================================================
+[2025-04-27T19:57:02.321+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.31s           2025-04-27T19:56:54
+================================================================================
+[2025-04-27T19:57:32.588+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:57:24
+================================================================================
+[2025-04-27T19:57:50.748+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T19:57:50.749+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T19:58:02.883+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:57:54
+================================================================================
+[2025-04-27T19:58:33.169+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:58:24
+================================================================================
+[2025-04-27T19:59:03.473+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.21s           2025-04-27T19:58:55
+================================================================================
+[2025-04-27T19:59:33.779+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:59:25
+================================================================================
+[2025-04-27T20:00:04.062+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T19:59:55
+================================================================================
+[2025-04-27T20:00:34.342+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:00:25
+================================================================================
+[2025-04-27T20:01:04.718+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:00:56
+================================================================================
+[2025-04-27T20:01:35.016+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:01:26
+================================================================================
+[2025-04-27T20:02:05.317+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:01:56
+================================================================================
+[2025-04-27T20:02:35.615+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.21s           2025-04-27T20:02:26
+================================================================================
+[2025-04-27T20:02:50.785+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T20:02:50.786+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T20:03:05.949+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:02:56
+================================================================================
+[2025-04-27T20:03:36.227+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.11s           2025-04-27T20:03:27
+================================================================================
+[2025-04-27T20:04:06.499+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.12s           2025-04-27T20:03:57
+================================================================================
+[2025-04-27T20:04:36.797+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           1           0  0.12s           2025-04-27T20:04:27
+================================================================================
+[2025-04-27T20:04:57.614+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:05:07.118+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:04:57
+================================================================================
+[2025-04-27T20:05:27.795+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:05:37.414+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:05:27
+================================================================================
+[2025-04-27T20:05:57.981+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:06:07.683+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:05:57
+================================================================================
+[2025-04-27T20:06:28.157+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:06:37.956+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:06:28
+================================================================================
+[2025-04-27T20:06:58.342+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:07:08.259+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:06:58
+================================================================================
+[2025-04-27T20:07:28.551+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:07:38.615+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:07:28
+================================================================================
+[2025-04-27T20:07:50.832+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T20:07:50.833+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T20:07:58.775+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:08:08.814+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:07:58
+================================================================================
+[2025-04-27T20:08:28.969+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:08:39.013+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:08:28
+================================================================================
+[2025-04-27T20:08:59.155+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:09:09.208+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:08:59
+================================================================================
+[2025-04-27T20:09:29.378+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:09:39.426+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:09:29
+================================================================================
+[2025-04-27T20:09:59.576+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:10:09.618+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:09:59
+================================================================================
+[2025-04-27T20:10:29.769+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:10:39.824+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:10:29
+================================================================================
+[2025-04-27T20:10:59.979+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:11:09.845+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:10:59
+================================================================================
+[2025-04-27T20:11:30.147+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:11:40.087+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:11:30
+================================================================================
+[2025-04-27T20:12:00.329+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:12:10.351+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:12:00
+================================================================================
+[2025-04-27T20:12:30.540+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:12:40.577+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:12:30
+================================================================================
+[2025-04-27T20:12:51.605+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T20:12:51.606+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T20:13:00.723+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:13:10.770+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:13:00
+================================================================================
+[2025-04-27T20:13:30.924+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:13:40.980+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:13:30
+================================================================================
+[2025-04-27T20:14:01.136+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:14:11.170+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:14:01
+================================================================================
+[2025-04-27T20:14:31.326+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:14:41.404+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:14:31
+================================================================================
+[2025-04-27T20:15:01.555+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:15:11.601+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:15:01
+================================================================================
+[2025-04-27T20:15:31.747+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:15:41.821+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:15:31
+================================================================================
+[2025-04-27T20:16:01.956+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:16:12.028+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:16:01
+================================================================================
+[2025-04-27T20:16:32.188+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:16:42.230+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:16:32
+================================================================================
+[2025-04-27T20:17:02.370+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:17:12.418+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:17:02
+================================================================================
+[2025-04-27T20:17:32.557+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:17:42.553+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:17:32
+================================================================================
+[2025-04-27T20:17:51.986+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T20:17:51.990+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T20:18:02.739+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:18:12.795+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:18:02
+================================================================================
+[2025-04-27T20:18:32.950+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:18:42.988+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:18:32
+================================================================================
+[2025-04-27T20:19:03.147+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:19:13.206+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:19:03
+================================================================================
+[2025-04-27T20:19:33.366+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:19:43.418+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:19:33
+================================================================================
+[2025-04-27T20:20:03.571+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:20:13.622+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:20:03
+================================================================================
+[2025-04-27T20:20:33.774+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:20:43.831+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:20:33
+================================================================================
+[2025-04-27T20:21:03.997+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:21:14.049+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:21:03
+================================================================================
+[2025-04-27T20:21:34.200+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:21:44.242+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:21:34
+================================================================================
+[2025-04-27T20:22:04.398+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:22:14.458+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:22:04
+================================================================================
+[2025-04-27T20:22:34.599+0000] {manager.py:1016} ERROR - Processor for /opt/airflow/dags/Streaming-Data-Pipeline.py exited with return code 1.
+[2025-04-27T20:22:44.636+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/Streaming-Data-Pipeline.py                           0          -1  0.11s           2025-04-27T20:22:34
+================================================================================
+[2025-04-27T20:22:52.051+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-04-27T20:22:52.054+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-27T20:23:00.180+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
