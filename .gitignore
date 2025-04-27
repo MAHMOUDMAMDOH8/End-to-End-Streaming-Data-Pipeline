@@ -79,3 +79,7 @@ env/
 Thumbs.db
 *.log
 .directory 
+
+.*env
+*.env
+*.env.*
