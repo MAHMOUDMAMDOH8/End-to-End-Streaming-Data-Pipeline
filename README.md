@@ -5,6 +5,7 @@
 - [Introduction](#introduction)
 - [Tech Stack & Tools](#tech-stack--tools)
 - [Assumptions](#assumptions)
+- [Project Structure](#Project-Structure)
 - [Pipeline Architecture](#pipeline-architecture)
 - [DBT Models](#DBT-Models)
 - [Airflow DAG Overview](#airflow-dag-overview)
@@ -34,6 +35,20 @@ Environment Setup: Docker and Docker Compose are installed and configured on the
 Kafka: The Kafka topic (stock-prices) is pre-created and ready to receive data from producers.
 HDFS: The HDFS_BRONZE_DIR and HDFS_SILVER_DIR directories are used for storing raw and processed data
 Spark :  is configured to connect to the HDFS cluster and process data stored in the bronze layer.
+
+## Project Structure
+    ├── dags/                     # Airflow DAGs for orchestrating workflows
+    ├── Scripts/                  # Custom scripts for Kafka, Spark, and HDFS
+    │   ├── Kafka/                # Kafka producer and consumer scripts
+    │   ├── Spark/                # Spark job scripts
+    │   ├── hdfs/                 # HDFS upload and management scripts
+    ├── config/                   # Configuration files for the pipeline
+    ├── includes/                 # Local warehouse for intermediate data
+    ├── tests/                    # Unit and integration tests
+    ├── docker-compose.yaml       # Docker Compose file for container orchestration
+    ├── environment.env           # Environment variables for the project
+    ├── .gitignore                # Git ignore file
+    └── README.md                 # Project documentation
 
 ## Pipeline Architecture
 ![Architecture drawio](https://github.com/user-attachments/assets/78c383e9-31f1-4e01-a1de-b78cb4a36fcf)
