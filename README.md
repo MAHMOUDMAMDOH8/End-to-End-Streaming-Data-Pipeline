@@ -37,18 +37,20 @@ HDFS: The HDFS_BRONZE_DIR and HDFS_SILVER_DIR directories are used for storing r
 Spark :  is configured to connect to the HDFS cluster and process data stored in the bronze layer.
 
 ## Project Structure
-    ├── dags/                     # Airflow DAGs for orchestrating workflows
-    ├── Scripts/                  # Custom scripts for Kafka, Spark, and HDFS
-    │   ├── Kafka/                # Kafka producer and consumer scripts
-    │   ├── Spark/                # Spark job scripts
-    │   ├── hdfs/                 # HDFS upload and management scripts
-    ├── config/                   # Configuration files for the pipeline
-    ├── includes/                 # Local warehouse for intermediate data
-    ├── tests/                    # Unit and integration tests
-    ├── docker-compose.yaml       # Docker Compose file for container orchestration
-    ├── environment.env           # Environment variables for the project
-    ├── .gitignore                # Git ignore file
-    └── README.md                 # Project documentation
+    ├── dags/                     
+    ├── Scripts/                  
+    │   ├── Kafka/                
+    │   ├── Spark/                
+    │   ├── hdfs/                 
+    ├── config/  
+    ├── dbt/                  
+    │   ├── Stocl/
+    ├── includes/                 
+    ├── tests/                    
+    ├── docker-compose.yaml       
+    ├── environment.env           
+    ├── .gitignore                
+    └── README.md                
 
 ## Pipeline Architecture
 ![Architecture drawio](https://github.com/user-attachments/assets/78c383e9-31f1-4e01-a1de-b78cb4a36fcf)
