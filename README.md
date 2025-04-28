@@ -68,6 +68,10 @@ Spark :  is configured to connect to the HDFS cluster and process data stored in
 The project follows the Medallion Architecture, which organizes data into three layers:
 ![Data Flow](https://github.com/user-attachments/assets/dfb9ad33-bd30-4048-8a25-44fb55673e7b)
 
+![Data Flow Through the Medallion Architecture](https://github.com/user-attachments/assets/b3ee6aa9-4ebd-487c-992b-0b31e0eea71e)
+
+
+
 
 
     Bronze Layer (Raw Data): Stores unprocessed and ingested data from various sources.
