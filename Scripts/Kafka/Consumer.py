@@ -4,16 +4,15 @@ import logging
 from kafka import KafkaConsumer
 from datetime import datetime
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('kafka_consumer')
 
-# Load configuration from environment variables
-BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'kafka:9092')
-TOPIC = os.getenv('STOCK_KAFKA_TOPIC', 'stock-prices')
-CONSUMER_GROUP = os.getenv('KAFKA_CONSUMER_GROUP', 'stock-consumer-group')
+
+BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS')
+TOPIC = os.getenv('STOCK_KAFKA_TOPIC')
+CONSUMER_GROUP = os.getenv('KAFKA_CONSUMER_GROUP')
 BRONZE_DIR =  '/opt/airflow/includes/local_warehose/bronze'
-GROUP_ID = os.getenv("KAFKA_CONSUMER_GROUP", "stock-consumer-group")
+GROUP_ID = os.getenv("KAFKA_CONSUMER_GROUP")
 
 
 
@@ -30,7 +29,7 @@ consumer = KafkaConsumer(
 
 logger.info(f"Listening on topic(s): {TOPIC}")
 
-no_message_timeout = 5  # seconds
+no_message_timeout = 5  
 max_empty_polls = 3
 empty_polls = 0
 
@@ -42,7 +41,7 @@ while empty_polls < max_empty_polls:
         logger.info(f"No messages received (#{empty_polls})...")
         continue
 
-    empty_polls = 0  # Reset counter on receiving messages
+    empty_polls = 0  
 
     for tp, messages in msg_pack.items():
         for message in messages:
