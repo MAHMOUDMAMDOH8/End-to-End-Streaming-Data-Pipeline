@@ -3,9 +3,12 @@
 
 ## Table of Contents 
 - [Introduction](#introduction)
+- [System Architecture](#System-Architecture)
 - [Tech Stack & Tools](#tech-stack--tools)
 - [Assumptions](#assumptions)
+- [Environment Setup](#Environment-Setup)
 - [Project Structure](#Project-Structure)
+- [Ingestion Architecture](#Ingestion-Architecture)
 - [Pipeline Architecture](#pipeline-architecture)
 - [DBT Models](#DBT-Models)
 - [Airflow DAG Overview](#airflow-dag-overview)
@@ -18,6 +21,8 @@
 ## Introduction 
 This project is designed to process stock market data in real-time, enabling analytics and insights for financial applications.
 
+## System Architecture
+![System Architecture](https://github.com/user-attachments/assets/ef41894c-0ee9-4bbe-877e-11b03110649a)
 
 
 ## Tech Stack & Tools
@@ -35,6 +40,11 @@ Environment Setup: Docker and Docker Compose are installed and configured on the
 Kafka: The Kafka topic (stock-prices) is pre-created and ready to receive data from producers.
 HDFS: The HDFS_BRONZE_DIR and HDFS_SILVER_DIR directories are used for storing raw and processed data
 Spark :  is configured to connect to the HDFS cluster and process data stored in the bronze layer.
+
+## Environment Setup
+![Environment Setup](https://github.com/user-attachments/assets/bb63c7e4-3574-474e-90a2-8c2e13d928aa)
+
+
 
 ## Project Structure
     ├── dags/                     
@@ -56,10 +66,17 @@ Spark :  is configured to connect to the HDFS cluster and process data stored in
 ![Architecture drawio](https://github.com/user-attachments/assets/78c383e9-31f1-4e01-a1de-b78cb4a36fcf)
 
 The project follows the Medallion Architecture, which organizes data into three layers:
+![Data Flow](https://github.com/user-attachments/assets/dfb9ad33-bd30-4048-8a25-44fb55673e7b)
+
+
 
     Bronze Layer (Raw Data): Stores unprocessed and ingested data from various sources.
     Silver Layer (Cleansed Data): Cleans and pre-processes data for transformation and enrichment.
     Gold Layer (Aggregated Data): Optimized for analytics, reporting, and business intelligence.
+
+## Ingestion Architecture
+
+![Ingestion Architecture](https://github.com/user-attachments/assets/bc13699e-af20-4cbc-8cb7-cf915063931d)
 
 ## Airflow DAG Overview
 ![airflow](https://github.com/user-attachments/assets/23453dc3-388d-4a9f-8b89-16ae53833580)
